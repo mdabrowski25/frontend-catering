@@ -9,6 +9,7 @@ import {OrderComponent} from './order/order.component';
 import {ContactComponent} from './contact/contact.component';
 import {AboutUsComponent} from './about-us/about-us.component';
 import {MenuComponent} from './menu/menu.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 const routes: Routes = [{
   component: HomeComponent,
@@ -43,7 +44,8 @@ const routes: Routes = [{
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
