@@ -4,15 +4,24 @@
       <form [formGroup]="orderForm" (ngSubmit)="onSubmit()" method="post" class="mt-2">
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="firstName">First Name</label>
+            <label for="firstName">Imię</label>
             <input type="text" class="form-control" id="firstName" placeholder="First name" formControlName="firstName">
           </div>
           <div class="form-group col-md-6">
-            <label for="Last Name">Last Name</label>
+            <label for="Last Name">Nazwisko</label>
             <input type="text" class="form-control" id="Last Name" placeholder="Last name" formControlName="lastName">
           </div>
         </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label>
+              Owoce: <input class="form-control" type="checkbox" name="owoce">
+            </label>
+          </div>
+          <div class="form-group col-md-6">
 
+          </div>
+        </div>
       </form>
     </div>
   </div>
