@@ -7,48 +7,61 @@
             <button type="submit" class="btn-dark w-100 rounded">Złóż zapytanie</button>
           </div>
         </div>
+
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="firstname">Imię</label>
-            <input type="text" class="form-control" id="firstname" placeholder="First name" formControlName="firstName">
+            <input type="text" class="form-control" id="firstname" placeholder="First name"
+                   formControlName="firstname">
           </div>
           <div class="form-group col-md-6">
             <label for="lastname">Nazwisko</label>
-            <input type="text" class="form-control" id="lastname" placeholder="Last name" formControlName="lastName">
+            <input type="text" class="form-control" id="lastname" placeholder="Last name" formControlName="lastname">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="address"> Adres: </label>
-            <input type="text" id="address" name="address" class="form-control" placeholder="Street 11, City">
+            <input type="text" id="address" name="address" class="form-control"
+                   placeholder="Street 11, City" formControlName="address">
           </div>
           <div class="form-group col-md-6">
             <label for="date"> Data i czas: </label>
-            <input id="date" type="datetime-local" name="date" class="form-control">
+            <input id="date" type="datetime-local" name="date" class="form-control" formControlName="date">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="telephone">Telefon:</label>
+            <input type="text" id="telephone" name="telephone" class="form-control"
+                   placeholder="+48 222 222 222" formControlName="telephone">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
             <div> Dania:
-              <div class="form-check form-row mb-4 p-4" *ngFor="let element of food">
-                <input class="form-control form-check-input position-relative col-md-1 m-0 p-0 float-left"
-                       type="checkbox" value="" name="{{element.name}}"
-                       id="{{element.foodId}}">
-                <label class="form-check-label col-md-11 float-right" for="{{element.foodId}}">
-                  {{element.name}}
-                </label>
+              <div formArrayName="food">
+                <div class="form-check form-row mb-4 p-4" *ngFor="let element of food; let i">
+                  <input class="form-control form-check-input position-relative col-md-1 m-0 p-0 float-left"
+                         type="checkbox" value="{{element.foodId}}" id="food{{element.foodId}}"
+                         (change)="onCheckFoodChange($event)">
+                  <label class="form-check-label col-md-11 float-right" for="food{{element.foodId}}">
+                    {{element.name}}
+                  </label>
+                </div>
               </div>
             </div>
           </div>
           <div class="form-group col-md-6">
             <div> Napoje:
-              <div class="form-check form-row mb-4 p-4" *ngFor="let element of drink">
-                <input class="form-control form-check-input position-relative col-md-1 m-0 p-0 float-left"
-                       type="checkbox" value="" name="{{element.name}}"
-                       id="{{element.drinkId}}">
-                <label class="form-check-label col-md-11 float-right" for="{{element.drinkId}}">
-                  {{element.name}}
-                </label>
+              <div formArrayName="drink">
+                <div class="form-check form-row mb-4 p-4" *ngFor="let element of drink; let i">
+                  <input class="form-control form-check-input position-relative col-md-1 m-0 p-0 float-left"
+                         type="checkbox" value="{{i}}" id="drink{{i}}" (change)="onCheckDrinkChange($event)">
+                  <label class="form-check-label col-md-11 float-right" for="drink{{i}}">
+                    {{element.name}}
+                  </label>
+                </div>
               </div>
             </div>
           </div>
