@@ -6,9 +6,10 @@ body {
 
 html,
 body {
-  height: 100%;
+  height: auto;
   background-color: #343a40;
   background-image: linear-gradient(147deg, #000000 0%, #343a40 60%);
+  background-repeat: no-repeat;
 }
 
 a,

@@ -3,23 +3,54 @@
     <div class="col-8 col-md-6">
       <form [formGroup]="orderForm" (ngSubmit)="onSubmit()" method="post" class="mt-2">
         <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="firstName">Imię</label>
-            <input type="text" class="form-control" id="firstName" placeholder="First name" formControlName="firstName">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="Last Name">Nazwisko</label>
-            <input type="text" class="form-control" id="Last Name" placeholder="Last name" formControlName="lastName">
+          <div class="col-12 mt-2">
+            <button type="submit" class="btn-dark w-100 rounded">Złóż zapytanie</button>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label>
-              Owoce: <input class="form-control" type="checkbox" name="owoce">
-            </label>
+            <label for="firstname">Imię</label>
+            <input type="text" class="form-control" id="firstname" placeholder="First name" formControlName="firstName">
           </div>
           <div class="form-group col-md-6">
-
+            <label for="lastname">Nazwisko</label>
+            <input type="text" class="form-control" id="lastname" placeholder="Last name" formControlName="lastName">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="address"> Adres: </label>
+            <input type="text" id="address" name="address" class="form-control" placeholder="Street 11, City">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="date"> Data i czas: </label>
+            <input id="date" type="datetime-local" name="date" class="form-control">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <div> Dania:
+              <div class="form-check form-row mb-4 p-4" *ngFor="let element of food">
+                <input class="form-control form-check-input position-relative col-md-1 m-0 p-0 float-left"
+                       type="checkbox" value="" name="{{element.name}}"
+                       id="{{element.foodId}}">
+                <label class="form-check-label col-md-11 float-right" for="{{element.foodId}}">
+                  {{element.name}}
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <div> Napoje:
+              <div class="form-check form-row mb-4 p-4" *ngFor="let element of drink">
+                <input class="form-control form-check-input position-relative col-md-1 m-0 p-0 float-left"
+                       type="checkbox" value="" name="{{element.name}}"
+                       id="{{element.drinkId}}">
+                <label class="form-check-label col-md-11 float-right" for="{{element.drinkId}}">
+                  {{element.name}}
+                </label>
+              </div>
+            </div>
           </div>
         </div>
       </form>
