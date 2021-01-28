@@ -38,25 +38,25 @@ export class OrderComponent implements OnInit {
 
   onSubmit(): void {
     const tabFood: Food[] = [];
-    const tabDrink: Food[] = [];
-    const tab: string[] = this.orderForm.get('food').value;
-    const tab2: string[] = this.orderForm.get('drink').value;
+    const tabDrink: Drink[] = [];
+    const tab = this.orderForm.get('food').value;
+    const tab2 = this.orderForm.get('drink').value;
     tab.forEach(e => tabFood.push(this.food[parseInt(e, 10)]));
     tab2.forEach(e => tabDrink.push(this.drink[parseInt(e, 10)]));
-    // let totalPrice = 0;
-    // tabFood.forEach(e => totalPrice += e.price);
-    // tabDrink.forEach(e => totalPrice += e.price);
-    const order: CateringOrder = {
+    let totalPrice = 0;
+    tabFood.forEach(e => totalPrice = totalPrice + e.price);
+    tabDrink.forEach(e => totalPrice = totalPrice + e.price);
+    const cateringOrder: CateringOrder = {
       firstname: this.orderForm.value.firstname,
       lastname: this.orderForm.value.lastname,
       drinkOrdered: tabDrink,
       foodOrdered: tabFood,
-      price: 0,
+      price: totalPrice,
       address: this.orderForm.value.address,
       telephoneNumber: this.orderForm.value.telephone,
       date: this.orderForm.value.date
     };
-    this.httpClient.postOrder(order).subscribe(() => {
+    this.httpClient.postOrder(cateringOrder).subscribe(() => {
         alert('Przyjęto zgłoszenie, proszę czekać na telefon');
       },
       () => {

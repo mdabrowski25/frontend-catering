@@ -10,5 +10,19 @@ export class CateringOrder {
   price?: number;
   address?: string;
   telephoneNumber?: string;
-  date?: Date;
+  date?: string;
+
+
+  // tslint:disable-next-line:max-line-length
+  constructor(firstname: string, lastname: string, drinkOrdered: Drink[], foodOrdered: Food[], price: number,
+              address: string, telephoneNumber: string, date: string) {
+    this.firstname = firstname;
+    this.lastname = lastname;
+    this.drinkOrdered = drinkOrdered;
+    this.foodOrdered = foodOrdered;
+    this.price = price;
+    this.address = address;
+    this.telephoneNumber = telephoneNumber;
+    this.date = date;
+  }
 }

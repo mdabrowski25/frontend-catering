@@ -43,9 +43,9 @@
               <div formArrayName="food">
                 <div class="form-check form-row mb-4 p-4" *ngFor="let element of food; let i">
                   <input class="form-control form-check-input position-relative col-md-1 m-0 p-0 float-left"
-                         type="checkbox" value="{{element.foodId}}" id="food{{element.foodId}}"
+                         type="checkbox" value="{{element.foodId-1}}" id="food{{element.foodId-1}}"
                          (change)="onCheckFoodChange($event)">
-                  <label class="form-check-label col-md-11 float-right" for="food{{element.foodId}}">
+                  <label class="form-check-label col-md-11 float-right" for="food{{element.foodId-1}}">
                     {{element.name}}
                   </label>
                 </div>
@@ -57,8 +57,9 @@
               <div formArrayName="drink">
                 <div class="form-check form-row mb-4 p-4" *ngFor="let element of drink; let i">
                   <input class="form-control form-check-input position-relative col-md-1 m-0 p-0 float-left"
-                         type="checkbox" value="{{i}}" id="drink{{i}}" (change)="onCheckDrinkChange($event)">
-                  <label class="form-check-label col-md-11 float-right" for="drink{{i}}">
+                         type="checkbox" value="{{element.drinkId-1}}" id="drink{{element.drinkId-1}}"
+                         (change)="onCheckDrinkChange($event)">
+                  <label class="form-check-label col-md-11 float-right" for="drink{{element.drinkId-1}}">
                     {{element.name}}
                   </label>
                 </div>
