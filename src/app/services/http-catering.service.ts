@@ -11,7 +11,7 @@ import {CateringOrder} from '../models/catering-order.model';
 export class HttpCateringService {
   httpOptions = {
     headers: new HttpHeaders({
-      'Access-Control-Allow-Origin': 'https://frontend-catering-s-krol.netlify.app/**'
+      'Access-Control-Allow-Origin': 'https://frontend-catering-s-krol.netlify.app'
     })
   };
 
