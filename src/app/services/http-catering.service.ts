@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Food} from '../models/food.model';
 import {Drink} from '../models/drink.model';
@@ -9,11 +9,6 @@ import {CateringOrder} from '../models/catering-order.model';
   providedIn: 'root'
 })
 export class HttpCateringService {
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Access-Control-Allow-Origin': 'https://frontend-catering-s-krol.netlify.app'
-    })
-  };
 
   constructor(private httpClient: HttpClient) { }
 
@@ -26,7 +21,7 @@ export class HttpCateringService {
     return this.httpClient.get<Drink[]>(this.url + 'drink');
   }
   postOrder(order: CateringOrder): Observable<CateringOrder> {
-    return this.httpClient.post<CateringOrder>(this.url + 'order/post', order, this.httpOptions);
+    return this.httpClient.post<CateringOrder>(this.url + 'order/post', order);
   }
 
 
