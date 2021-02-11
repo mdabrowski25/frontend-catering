@@ -12,7 +12,7 @@ export class HttpCateringService {
 
   constructor(private httpClient: HttpClient) { }
 
-  url = 'https://backend-catering-s-krol.herokuapp.com/';
+  url = 'http://localhost:8080/';
 
   getAllFood(): Observable<Food[]> {
     return this.httpClient.get<Food[]>(this.url + 'food');
@@ -21,7 +21,7 @@ export class HttpCateringService {
     return this.httpClient.get<Drink[]>(this.url + 'drink');
   }
   postOrder(order: CateringOrder): Observable<CateringOrder> {
-    return this.httpClient.post<CateringOrder>(this.url + 'order/post', order);
+    return this.httpClient.post<CateringOrder>(this.url + 'cateringOrder/post', order);
   }
 
 
